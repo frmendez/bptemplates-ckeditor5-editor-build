@@ -46,10 +46,10 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 
-export default class Editor extends DecoupledDocumentEditor {}
+export default class BPTemplatesEditor extends DecoupledDocumentEditor {}
 
 // Plugins to include in the build.
-Editor.builtinPlugins = [
+BPTemplatesEditor.builtinPlugins = [
 	Alignment,
 	Autoformat,
 	Autosave,
@@ -114,7 +114,7 @@ const customColorPalette = [
 ];
 
 // Editor configuration.
-Editor.defaultConfig = {
+BPTemplatesEditor.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
