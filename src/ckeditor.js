@@ -94,8 +94,8 @@ BPTemplatesEditor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation,
 	TodoList,
-	Underline,
-	TableClassesPlugin
+	Underline
+
 ];
 
 
