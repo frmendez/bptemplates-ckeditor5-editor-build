@@ -44,6 +44,6 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "ckeditor5-table-classes": "^7.0.0"
+    "ckeditor5-table-classes": "6.0.0"
   }
 }
