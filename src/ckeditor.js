@@ -45,6 +45,9 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
+import TableClassesPlugin from "ckeditor5-table-classes/src/tableclasses";
+
+import RepeaTableIcon from '../theme/icon/star.svg';
 
 export default class BPTemplatesEditor extends DecoupledDocumentEditor {}
 
@@ -91,7 +94,8 @@ BPTemplatesEditor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation,
 	TodoList,
-	Underline
+	Underline,
+	TableClassesPlugin
 ];
 
 
@@ -163,6 +167,7 @@ BPTemplatesEditor.defaultConfig = {
 		]
 	},
 	table: {
+		tableToolbar: ['tableclass-style1'],
 		contentToolbar: [
 			'tableColumn', 'tableRow', 'mergeTableCells',
 			'tableProperties', 'tableCellProperties'
@@ -177,6 +182,11 @@ BPTemplatesEditor.defaultConfig = {
 			borderColors: customColorPalette,
 			backgroundColors: customColorPalette
 		}
+	},
+	TableClasses:{
+		items:[
+			{id:"style1",   classes:'--BPTEMPLATES-REPEATABLE--', icon:RepeaTableIcon},
+		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'es',
