@@ -43,6 +43,7 @@ import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import MathType from '@wiris/mathtype-ckeditor5';
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
@@ -95,6 +96,7 @@ BPTemplatesEditor.builtinPlugins = [
 	Autosave,
 	Code,
 	Highlight,
+	HtmlEmbed,
 	HorizontalLine,
 	ImageResize,
 	MathType,
@@ -142,12 +144,9 @@ BPTemplatesEditor.defaultConfig = {
 			'italic',
 			'underline',
 			'strikethrough',
-			'|',
 			'alignment',
-			'|',
 			'numberedList',
 			'bulletedList',
-			'|',
 			'indent',
 			'outdent',
 			'|',
@@ -157,6 +156,7 @@ BPTemplatesEditor.defaultConfig = {
 			'blockquote',
 			'imageUpload',
 			'insertTable',
+			'htmlEmbed',
 			'|',
 			'undo',
 			'redo'
