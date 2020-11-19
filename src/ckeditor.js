@@ -134,7 +134,6 @@ BPTemplatesEditor.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
-			'|',
 			'fontfamily',
 			'fontsize',
 			'fontColor',
