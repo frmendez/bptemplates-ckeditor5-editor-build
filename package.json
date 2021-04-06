@@ -31,7 +31,7 @@
     "@ckeditor/ckeditor5-media-embed": "^23.1.0",
     "@ckeditor/ckeditor5-page-break": "^23.1.0",
     "@ckeditor/ckeditor5-paragraph": "^23.1.0",
-    "@ckeditor/ckeditor5-paste-from-office": "^23.1.0",
+    "@ckeditor/ckeditor5-paste-from-office": "^27.0.0",
     "@ckeditor/ckeditor5-remove-format": "^23.1.0",
     "@ckeditor/ckeditor5-table": "^23.1.0",
     "@ckeditor/ckeditor5-typing": "^23.1.0",
