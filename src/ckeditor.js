@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
  */
 
@@ -24,6 +24,7 @@ import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
 import Image from '@ckeditor/ckeditor5-image/src/image';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
@@ -38,22 +39,23 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
 
-import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
+// import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
+
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
-import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+// import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
 import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed';
-import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 import MathType from '@wiris/mathtype-ckeditor5';
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
-import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+// import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
 import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
 import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
 import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
-import TableClassesPlugin from "ckeditor5-table-classes/src/tableclasses";
+import TableClassesPlugin from 'ckeditor5-table-classes/src/tableclasses';
 
 import RepeaTableIcon from '../theme/icon/star.svg';
 
@@ -75,10 +77,12 @@ BPTemplatesEditor.builtinPlugins = [
 	Underline,
 	BlockQuote,
 	CKFinder,
+	CloudServices,
 	EasyImage,
 	Heading,
 	Image,
 	ImageCaption,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
@@ -93,15 +97,15 @@ BPTemplatesEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
-	Autosave,
+	// Autosave,
 	Code,
 	Highlight,
 	HtmlEmbed,
-	HorizontalLine,
+	// HorizontalLine,
 	ImageResize,
 	MathType,
 	PageBreak,
-	RemoveFormat,
+	// RemoveFormat,
 	Subscript,
 	Superscript,
 	TableCellProperties,
@@ -109,7 +113,6 @@ BPTemplatesEditor.builtinPlugins = [
 	TodoList,
 	TableClassesPlugin
 ];
-
 
 const customColorPalette = [
 	{ color: '#000000', label: 'Black' },
@@ -152,9 +155,11 @@ BPTemplatesEditor.defaultConfig = {
 			'MathType',
 			'ChemType',
 			'|',
+			'link',
 			'blockquote',
-			'imageUpload',
+			'uploadImage',
 			'insertTable',
+			'mediaEmbed',
 			'htmlEmbed',
 			'|',
 			'undo',
@@ -167,19 +172,27 @@ BPTemplatesEditor.defaultConfig = {
 			'alignLeft',
 			'alignRight'
 		],
+		resizeUnit: 'px',
 		toolbar: [
+			'imageStyle:inline',
+			'imageStyle:wrapText',
+			'imageStyle:breakText',
 			'imageStyle:alignLeft',
 			'imageStyle:full',
 			'imageStyle:alignRight',
 			'|',
+			'toggleImageCaption',
 			'imageTextAlternative'
 		]
 	},
 	table: {
-		tableToolbar: ['tableclass-style1'],
+		tableToolbar: [ 'tableclass-style1' ],
 		contentToolbar: [
-			'tableColumn', 'tableRow', 'mergeTableCells',
-			'tableProperties', 'tableCellProperties'
+			'tableColumn',
+			'tableRow',
+			'mergeTableCells',
+			'tableProperties',
+			'tableCellProperties'
 		],
 		tableProperties: {
 			borderColors: customColorPalette,
@@ -192,9 +205,9 @@ BPTemplatesEditor.defaultConfig = {
 			backgroundColors: customColorPalette
 		}
 	},
-	TableClasses:{
-		items:[
-			{id:"style1",   classes:'--BPTEMPLATES-REPEATABLE--', icon:RepeaTableIcon},
+	TableClasses: {
+		items: [
+			{ id: 'style1', classes: '--BPTEMPLATES-REPEATABLE--', icon: RepeaTableIcon }
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
